@@ -1,7 +1,7 @@
 package com.api.parkingcontrol.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import com.api.parkingcontrol.models.ParkingSportModel;
+import com.api.parkingcontrol.models.ParkingSpotModel;
 
 import java.util.UUID;
 
@@ -11,6 +11,12 @@ import java.util.UUID;
  *  sem ter a necessidade de ficar criando queryes.
  *
  **/
-public interface ParkingSportRepository extends JpaRepository<ParkingSportModel, UUID> {
+public interface ParkingSpotRepository extends JpaRepository<ParkingSpotModel, UUID> {
+
+	boolean existsByLicensePlateCar(String licensePlateCar);
+
+	boolean existsByParkingSpotNumber(String number);
+
+	boolean existsByApartmentAndBlock(String apartment, String block);
 
 }
